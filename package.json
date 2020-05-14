@@ -1,0 +1,20 @@
+{
+  "name": "wechat-miniprogram-basic",
+  "version": "1.0.0",
+  "description": "基于 `webpack`打包构建的微信小程序原生开发的一个基础项目",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WenJiang99/wechat-miniprogram-basic.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WenJiang99/wechat-miniprogram-basic/issues"
+  },
+  "homepage": "https://github.com/WenJiang99/wechat-miniprogram-basic#readme"
+}
