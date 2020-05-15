@@ -1,9 +1,9 @@
 <!-- index.wxml -->
 <view class="container">
-  <view class="userinfo" bindtap="bindViewTap">
+  <view class="user-info" bindtap="bindViewTap">
     <open-data type="userNickName" lang="en" />
   </view>
-  <view class="usermotto">
+  <view class="user-motto">
     <text class="user-motto">{{motto}}</text>
   </view>
 </view>

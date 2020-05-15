@@ -1,5 +1,6 @@
 //index.js
 import { hello, asyncHello, greet } from '@/lib/utils/hello'
+import './index.scss'
 //获取应用实例
 const app = getApp()
 

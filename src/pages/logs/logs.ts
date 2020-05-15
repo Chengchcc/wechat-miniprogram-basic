@@ -1,5 +1,6 @@
 //logs.js
 import util from '@/lib/utils/util';
+import './logs.scss'
 interface IData {
   logs: string[]
 }

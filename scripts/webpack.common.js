@@ -1,6 +1,7 @@
 const { resolve } = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const src = resolve(__dirname, '../src')
 
 module.exports = {
@@ -26,22 +27,41 @@ module.exports = {
         test: /\.(js|ts)$/,
         use: ['babel-loader'],
         exclude: /\/node_modules\//
+      },
+      {
+        test: /\.(sass|scss)$/i,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          'css-loader',
+          {
+            loader: 'sass-loader'
+          },
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: [
+                resolve(src, './assets/styles/global.scss')
+              ]
+            }
+          }
+        ]
       }
     ]
-
   },
   plugins: [
     new CopyWebpackPlugin([
       {
         from: './app.*',
         to: '.',
-        ignore: ['*.ts']
+        ignore: ['*.ts', '*.scss', '*.sass']
       },
       {
         from: './pages/',
         to: './pages/',
         toType: 'dir',
-        ignore: ['*.ts']
+        ignore: ['*.ts', '*.scss', '*.sass']
       },
       {
         from: './assets/',
@@ -50,6 +70,10 @@ module.exports = {
       }
     ]),
     new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "[name].wxss",
+      chunkFilename: "[id].wxss"
+    })
   ],
   mode: 'production'
 }

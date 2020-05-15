@@ -1,0 +1,16 @@
+$border: 1px solid $border-color-warn;
+
+.log {
+  &-list {
+    display: flex;
+    flex-direction: column;
+    padding: 40rpx;
+    color: green;
+    background-color: $bg-color-black;
+  }
+
+  &-item {
+    margin: 10rpx;
+    border: $border;
+  }
+}
