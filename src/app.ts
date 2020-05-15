@@ -1,5 +1,11 @@
 //app.js
-App({
+interface ICustomData {
+  globalData: {
+    userInfo: any
+  },
+  userInfoReadyCallback?: (res: any) => any
+}
+App<ICustomData>({
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []

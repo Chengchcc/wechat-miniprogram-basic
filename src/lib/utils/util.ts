@@ -1,4 +1,4 @@
-const formatTime = date => {
+const formatTime = (date: Date): string => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
   const day = date.getDate()
@@ -9,11 +9,11 @@ const formatTime = date => {
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
-const formatNumber = n => {
-  n = n.toString()
-  return n[1] ? n : '0' + n
+const formatNumber = (n: number): string => {
+  const num = n.toString()
+  return num[1] ? String(n) : '0' + num
 }
 
-module.exports = {
-  formatTime: formatTime
+export default {
+  formatTime
 }
