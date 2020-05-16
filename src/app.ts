@@ -5,6 +5,8 @@ interface ICustomData {
   },
   userInfoReadyCallback?: (res: any) => any
 }
+
+
 App<ICustomData>({
   onLaunch: function () {
     // 展示本地存储能力

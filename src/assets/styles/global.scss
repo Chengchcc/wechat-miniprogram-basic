@@ -2,7 +2,10 @@ $text-color-primary: #dcdcdc;
 $text-color-disabled: #666;
 
 $border-color-primary: #dcdcdc;
-$border-color-warn: rgb(240, 178, 64);
+$border-color-warn: #f0b244;
+
+$border-primary: 1px solid $border-color-primary;
+$border-warn: 1px solid $border-color-warn;
 
 $bg-color-primary: #fff;
 $bg-color-black: #000;

@@ -1,6 +1,10 @@
 //index.js
 import { hello, asyncHello, greet } from '@/lib/utils/hello'
 import './index.scss'
+import { test } from '@/lib/utils/test'
+import { log } from '@/lib/common/index'
+import {camelCase} from 'lodash'
+
 //获取应用实例
 const app = getApp()
 
@@ -19,7 +23,7 @@ interface IMethods {
 }
 Page<IData, IMethods>({
   data: {
-    motto: 'Hello World',
+    motto: '你好',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -33,6 +37,8 @@ Page<IData, IMethods>({
   onLoad: async function () {
     console.log(`wait 2000ms ...`)
     await greet('test-id')
+    log.debug(camelCase('hello-world-lodash'))
+    test()
   },
   getUserInfo: function (e: any) {
     console.log(e)

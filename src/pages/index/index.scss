@@ -1,5 +1,4 @@
 $text-color:red;
-$bg-color-grey:#333;
 
 @mixin flex_center ($direction:row) {
   display: flex;
@@ -11,19 +10,19 @@ $bg-color-grey:#333;
 .container {
   width: 100%;
   height: 100vh;
-  background-color: $bg-color-grey;
+  background-color: $bg-color-primary;
 
   @include flex_center(column);
 
   .user {
     &-info {
-      border: 1px solid #dcdcdc;
       color: $text-color;
     }
 
     &-motto {
       font-size: 2rem;
-      background-color: blue;
+      border: $border-warn;
+      background-color: $bg-color-primary;
     }
   }
 }

@@ -3,13 +3,17 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const src = resolve(__dirname, '../src')
+const BundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+const isAnalyzie = true;
+const AnalyzerPlugin = isAnalyzie ? [new BundleAnalyzer()] : [];
 
 module.exports = {
   context: src,
   entry: {
     'app': './app.ts',
     'pages/index/index': './pages/index/index.ts',
-    'pages/logs/logs': './pages/logs/logs.ts'
+    'pages/logs/logs': './pages/logs/logs.ts',
   },
   output: {
     path: resolve('./dist'),
@@ -72,11 +76,13 @@ module.exports = {
         toType: 'dir'
       }
     ]),
-    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: "[name].wxss",
       chunkFilename: "[id].wxss"
-    })
+    }),
+    new CleanWebpackPlugin({
+      cleanStaleWebpackAssets: false,
+    }),
+    ...AnalyzerPlugin
   ],
-  mode: 'production'
 }
